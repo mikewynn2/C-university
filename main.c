@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include "lib/list.h"
-#include "lib/list.c"
 #include "lib/queue.h"
-#include "lib/queue.c"
 #include "lib/stack.h"
-#include "lib/stack.c"
+#include "lib/tree.h"
 
 void test_list()
 {
@@ -87,11 +85,32 @@ void test_stack()
 
 }
 
+void test_tree()
+{
+ struct node* root = NULL;
+ root = tree_set(root, 20, "20");
+ tree_set(root, 4, "4");
+ tree_set(root, 5, "5");
+ tree_set(root, 3, "3");
+ tree_set(root, 10, "10");
+ tree_set(root, 30, "30");
+ tree_set(root, 15, "15");
+ tree_set(root, 8, "8");
+ tree_set(root, 25, "25");
+ tree_set(root, 35, "35");
+ tree_set(root, 2, "2");
+ tree_as_list(root);
+ /* tree_remove(root, 5); */
+ tree_as_list(root);
+
+}
+
 int main(int argc, char *argv[])
 {
   test_list();
   test_queue();
   test_stack();
+  test_tree();
 
   return 0;
 

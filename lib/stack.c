@@ -70,6 +70,7 @@ int stack_pop(struct Stack* stack)
 {
   if(!stack_is_empty(stack))
   {
+    stack->size--;
     return stack->arr[stack->top--];;
   } else {
     printf("can not pop from empty stack");
